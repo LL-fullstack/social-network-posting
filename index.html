@@ -13,7 +13,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-        <script src="./assets/script/app.js" defer></script>
+        <script type ="module" src="./assets/script/classes.js" defer></script>
+        <script type="module" src="./assets/script/app.js" defer></script>
+        <script type="module" src="./assets/script/utility.js" defer></script>
     </head>
     <body>
         <header>
@@ -27,22 +29,28 @@
                         <li>My ads</li>
                         <li>Settings</li>
                     </ul>
-                    <li><button id="loginBtn">Login</button></li>
+                    <li><img src="./assets/media/user.png" alt="Sample img" id="loginPic"></li>
                 </nav>
             </div>
         </header>
-        <div id="modal" class="modal"><!-- Modal content goes here --></div>
+        <div id="modal" class="modal popup"></div>
+
         <section>
-            <div id="postForm">
+            <form id="postForm" class="post-section">
                 <div id="postContent" class="post-content">
                 <textarea id="postText" placeholder="What's new today?"></textarea>
                 <div id="bottomRow">
-                    <input type="file" id="imageInput" class="select-pic" accept="image/*"><i class="fa-regular fa-image"></i>
-                    <button type="submit" id="postButton">Post</button>
+                    <label for="imageInput" class="file-input-label">
+                        <img src="./assets/media/img-icon.jpg" alt="img-icon" id="img-icon">
+                        <input type="file" id="imageInput" class="select-pic" accept="image/*">
+                        <span id="fileLabel"></span>
+                    </label>
+                    
+                    <button type="click" id="postButton">Post</button>
                 </div>  
             </div>
-        </div>
+        </form>
         </section>
-        <section id="postsSection"> <!-- Posts will be displayed here --></section>
+        <section id="postsSection"></section>
     </body>
 </html>
