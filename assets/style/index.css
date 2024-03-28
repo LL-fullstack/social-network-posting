@@ -53,16 +53,6 @@ nav ul li {
     cursor: pointer;
 }
 
-#modal {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-}
-
 /* ........................................................... */
 /* post input                                                  */
 /* ........................................................... */
@@ -199,18 +189,51 @@ nav ul li {
     height: auto;
 }
 
-/* ........................................................... */
-/* pop up                                                      */
-/* ........................................................... */
 
-.popup {
-    width: 500px;
-    margin:  auto;
-    background-color: #fff;
+.modal {
     display: flex;
-    flex-direction: column;
-    padding: 10px 10px;
-    gap: 10px;
-    border-radius: 5px;
-    color: #fff;
-}
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    display: inline-block;
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 80%;
+    position: absolute;
+    top: 50%; /* Position at 50% from the top */
+    left: 50%; /* Position at 50% from the left */
+    transform: translate(-50%, -50%); /* Center the modal content */
+  }
+
+  #modalText {
+    color: #191824;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .close {
+    color: #aaa;
+    position: absolute;
+    top: 10px; /* Adjust top positioning as needed */
+    right: 10px; /* Adjust right positioning as needed */
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  

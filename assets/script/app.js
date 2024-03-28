@@ -4,6 +4,8 @@ import { User, Subscriber } from './classes.js';
 import { getCurrentDate } from './utility.js';
 import { isEmpty } from './utility.js';
 
+const user = new User(1, 'John Doe', 'johndoe123', 'john@example.com');
+
 document.getElementById('postButton').addEventListener('click', function(event) {
     event.preventDefault(); 
     // Get post text
@@ -38,7 +40,7 @@ document.getElementById('postButton').addEventListener('click', function(event) 
     // Create the user info
     let userInfo = document.createElement('div');
     userInfo.classList.add('user-info');
-    userInfo.textContent = "Lu Liu";
+    userInfo.textContent = user.name;
 
     // Append user image and user info to user info container
     userInfoContainer.appendChild(userImg);
@@ -109,7 +111,7 @@ imageInput.addEventListener('change', function() {
     // Check if files are selected
     if (imageInput.files.length > 0) {
         // Get the filename of the first selected file
-        var filename = imageInput.files[0].name;
+        let filename = imageInput.files[0].name;
         // Update the file label with the filename
         fileLabel.textContent = filename;
     }
@@ -119,11 +121,33 @@ imageInput.addEventListener('change', function() {
 
 // Example of creating a new Subscriber and displaying info in modal
 const subscriber = new Subscriber(1, 'John Doe', 'johndoe123', 'john@example.com', ['Page 1', 'Page 2'], ['Group 1', 'Group 2'], true);
+document.getElementById('modalText').textContent = user.getInfo();
 
-const modalContent = document.createElement('p');
-modalContent.textContent = subscriber.getInfo();
-document.getElementById('modal').appendChild(modalContent);
+// Modal 
+let modal = document.getElementById('profileModal');
 
-const user2 = new User(1, 'John Doe', 'johndoe123', 'john@example.com');
-console.log(subscriber.getInfo()); // Accessing name using the getter method
+// Profile Icon
+let modalButton = document.getElementById('loginPic');
 
+// Close Icon
+let closeElement = document.getElementsByClassName('close')[0];
+
+// Display modal when user clicks profile icon
+modalButton.onclick = function() {
+  modal.style.display = 'flex';
+}
+
+//Hide modal when user clicks outside x
+closeElement.onclick = function() {
+  modal.style.display = 'none';
+}
+
+// Hide modal when user clicks outside of it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+
+// Hide modal in the beginning
+modal.style.display = 'none';

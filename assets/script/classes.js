@@ -27,7 +27,7 @@ export class User {
     }
 
     getInfo() {
-        return `${this.#name} (${this.#userName}) - ${this.#email}`;
+        return `Name : ${this.#name}\nUserName : ${this.#userName}\nEmail : ${this.#email}`;
     }
 }
 
